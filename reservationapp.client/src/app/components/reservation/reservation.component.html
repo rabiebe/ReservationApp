@@ -1,0 +1,35 @@
+<div class="card mb-3" style="width: 18rem">
+  <img [src]="reservation.image"
+       class="card-img-top"
+       alt="..."
+       style="height: 100px; object-fit: cover" />
+  <div class="card-header">
+    <span class="card-title h3">{{ reservation.name }}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Date: {{ reservation.date }}</p>
+    <p class="card-text">Time: {{ reservation.time }}</p>
+    <p class="card-text">
+      Number of Guests:
+      <span class="badge rounded-pill bg-primary">
+        {{
+        reservation.numberOfGuests
+        }}
+      </span>
+    </p>
+    <span class="badge"
+          style="background-color: {{ reservation.statusBgColor }}; color: {{
+        reservation.statusTextColor
+      }}">{{ reservation.status }}</span>
+  </div>
+
+  <!-- <div class="card-footer">
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-icon btn-sm btn-circle btn-success">
+        Confirm
+      </button>
+      <button class="btn btn-icon btn-sm btn-circle btn-primary">Edit</button>
+      <button class="btn btn-icon btn-sm btn-circle btn-danger">Cancel</button>
+    </div>
+  </div> -->
+</div>

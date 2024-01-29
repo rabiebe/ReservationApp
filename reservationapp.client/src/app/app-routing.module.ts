@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

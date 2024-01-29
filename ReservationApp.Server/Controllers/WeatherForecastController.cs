@@ -1,4 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using restaurant_reservation_api.Controllers;
+using restaurant_reservation_api.Data;
+using restaurant_reservation_api.Entities;
 
 namespace ReservationApp.Server.Controllers
 {
@@ -11,23 +15,22 @@ namespace ReservationApp.Server.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        private readonly DataContext _context;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
+/*
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<List<Reservation>> GetReservations()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+
+            List<Reservation> reservations = await _context.Reservations.ToListAsync();
+
+            return reservations;
+        }*/
     }
 }

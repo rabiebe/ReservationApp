@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 import { Reservation } from '../../models/reservation.model';
 
 @Component({
@@ -6,8 +7,27 @@ import { Reservation } from '../../models/reservation.model';
   templateUrl: './reservation-list.component.html',
   styleUrl: './reservation-list.component.css'
 })
-export class ReservationListComponent {
-  @Input() reservations: Reservation[] = [
+export class ReservationListComponent implements OnInit {
+  public reservations: Reservation[] = [];
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.getAll();
+  }
+
+ getAll() {
+   this.http.get<Reservation[]>('/reservation').subscribe(
+      (result) => {
+        console.log("GetAll", result);
+        this.reservations = result; 
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  @Input() __reservations: Reservation[] = [
     {
       id: 1,
       name: 'John Doe',

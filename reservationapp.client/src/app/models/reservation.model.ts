@@ -3,7 +3,7 @@ export interface Reservation {
   name: string;
   date: string;
   time: string;
-  status: string;
+  status?: string;
   statusBgColor?: string;
   statusTextColor?: string;
   image?: string;

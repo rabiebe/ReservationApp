@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-navigation',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-
+  
 }

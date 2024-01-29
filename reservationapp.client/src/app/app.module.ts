@@ -10,16 +10,20 @@ import { RouterModule } from '@angular/router';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReservationFormComponent } from './components/reservation-form/reservation-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavigationComponent, ReservationListComponent, HomeComponent, ReservationComponent
+    AppComponent,NavigationComponent, ReservationListComponent, HomeComponent, ReservationComponent, ReservationFormComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   exports: [RouterModule],

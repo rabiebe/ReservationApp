@@ -1,0 +1,40 @@
+<div class="card container p-5 mb-3 overflow-auto" style="max-height: 80vh">
+  <h2 class="mb-4">Reservation Form</h2>
+  <form [formGroup]="applyForm" (submit)="initiateReservation()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        placeholder="Enter your name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Reservation Date:</label>
+      <input type="date" class="form-control" id="date" formControlName="date" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="time" class="form-label">Reservation Time:</label>
+      <input type="time" class="form-control" id="time" formControlName="time" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="guests" class="form-label">Number of Guests:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="numberOfGuests"
+        formControlName="numberOfGuests"
+        placeholder="Enter the number of guests"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Initiate Reservation</button>
+  </form>
+</div>

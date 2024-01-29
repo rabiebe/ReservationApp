@@ -1,10 +1,16 @@
-﻿namespace restaurant_reservation_api.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace restaurant_reservation_api.Entities
 {
     public class Reservation
     {
         public int Id { get; set; }
         public string? Name { get; set; }
+
+        [Required]
         public DateTime Date {  get; set; }
+
+        [Required]
         public int Time {  get; set; }
         public string? Status { get; set; }
         public string? StatusBgColor {  get; set; }

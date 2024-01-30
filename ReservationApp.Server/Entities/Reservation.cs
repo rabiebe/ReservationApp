@@ -8,10 +8,10 @@ namespace restaurant_reservation_api.Entities
         public string? Name { get; set; }
 
         [Required]
-        public DateTime Date {  get; set; }
+        public required DateOnly Date {  get; set; }
 
         [Required]
-        public int Time {  get; set; }
+        public required string Time {  get; set; }
         public string? Status { get; set; }
         public string? StatusBgColor {  get; set; }
         public string? StatusTextColor { get; set; }

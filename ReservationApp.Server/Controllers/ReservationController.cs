@@ -55,7 +55,13 @@ namespace restaurant_reservation_api.Controllers
                 _context.Add(reservationRequest);
                 await _context.SaveChangesAsync();
 
-                return Ok($"Reservation initiated. Reservation ID: {reservationRequest.Id}");
+                var responseData = new
+                {
+                    message = $"Reservation initiated. Reservation ID: {reservationRequest.Id}",
+                    reservationId = reservationRequest.Id 
+                };
+
+                return Ok(responseData);
             }
             catch (Exception ex)
             {

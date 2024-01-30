@@ -7,6 +7,10 @@ namespace restaurant_reservation_api.Entities
         public int Id { get; set; }
         public string? Name { get; set; }
 
+        public String? Phone { get; set; }
+
+        public string? Email { get; set; }
+
         [Required]
         public required DateOnly Date {  get; set; }
 

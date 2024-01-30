@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup } from '@angular/forms';
 import { ReservationService } from '../../services/reservation.service';
 import { DatePipe } from '@angular/common';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ConfirmationModalComponent } from '../../confirmation-modal/confirmation-modal.component';
+
 
 @Component({
   selector: 'app-reservation-form',
@@ -9,8 +12,9 @@ import { DatePipe } from '@angular/common';
   styleUrl: './reservation-form.component.scss'
 })
 export class ReservationFormComponent  {
+  modalRef: BsModalRef | undefined; 
 
-  constructor(private reservationService: ReservationService, private datePipe: DatePipe) {}
+  constructor(private reservationService: ReservationService, private datePipe: DatePipe, private modalService: BsModalService) {}
 
   
   applyForm = new FormGroup({
@@ -25,28 +29,6 @@ export class ReservationFormComponent  {
   }
 
   initiateReservation() {
-    /**
-     * "id": 0,
-      "name": "string",
-      "date": "2024-01-30T17:46:32.604Z",
-      "time": 0,
-      "status": "string",
-      "statusBgColor": "string",
-      "statusTextColor": "string",
-      "image": "string",
-      "numberOfGuests": 0
-
-
-
-      {
-    "name": "test test2",
-    "date": "2024-01-24T00:00:00.000+0100",
-    "time": "18:46",
-    "numberOfGuests": 4
-}
-     */
-    console.log('xxreservationForm', this.applyForm);
-
     if (this.applyForm.valid) {
       const reservationData = {
         ...this.applyForm.value,
@@ -61,6 +43,7 @@ export class ReservationFormComponent  {
         .subscribe(
           (response) => {
             console.log('Reservation saved successfully:', response);
+            this.showConfirmationModal(reservationData);
             this.reservationService.getAll(); 
           },
           (error) => {
@@ -70,5 +53,9 @@ export class ReservationFormComponent  {
     } else {
       console.log('Form is invalid.');
     }
+  }
+
+  showConfirmationModal(reservationData: any): void {
+    this.modalRef = this.modalService.show(ConfirmationModalComponent, { initialState: { data: reservationData } });
   }
 }

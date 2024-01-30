@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup } from '@angular/forms';
+import {FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../../services/reservation.service';
 import { DatePipe } from '@angular/common';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -18,10 +18,10 @@ export class ReservationFormComponent  {
 
   
   applyForm = new FormGroup({
-    name: new FormControl(''),
-    date: new FormControl(''),
-    time: new FormControl(''),
-    numberOfGuests: new FormControl('')
+    name: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    time: new FormControl('', Validators.required),
+    numberOfGuests: new FormControl('', [Validators.required, Validators.min(1)])
   })
 
   formatDate(date: string | null | undefined): string {
@@ -51,6 +51,7 @@ export class ReservationFormComponent  {
           }
         );
     } else {
+      this.applyForm.markAllAsTouched();
       console.log('Form is invalid.');
     }
   }

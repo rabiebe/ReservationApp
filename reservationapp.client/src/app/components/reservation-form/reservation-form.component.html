@@ -1,6 +1,6 @@
 <div class="card container p-5 mb-3 overflow-auto" style="max-height: 80vh">
   <h2 class="mb-4">Reservation Form</h2>
-  <form [formGroup]="applyForm" (submit)="initiateReservation()">
+  <form [formGroup]="applyForm" (ngSubmit)="initiateReservation()">
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
       <input
@@ -11,20 +11,29 @@
         placeholder="Enter your name"
         required
       />
+      <div *ngIf="applyForm.get('name')?.hasError('required') && applyForm.get('name')?.touched" class="text-danger">
+        Name is required.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="date" class="form-label">Reservation Date:</label>
       <input type="date" class="form-control" id="date" formControlName="date" required />
+      <div *ngIf="applyForm.get('date')?.hasError('required') && applyForm.get('date')?.touched" class="text-danger">
+        Reservation Date is required.
+      </div>
     </div>
 
     <div class="mb-3">
       <label for="time" class="form-label">Reservation Time:</label>
       <input type="time" class="form-control" id="time" formControlName="time" required />
+      <div *ngIf="applyForm.get('time')?.hasError('required') && applyForm.get('time')?.touched" class="text-danger">
+        Reservation Time is required.
+      </div>
     </div>
 
     <div class="mb-3">
-      <label for="guests" class="form-label">Number of Guests:</label>
+      <label for="numberOfGuests" class="form-label">Number of Guests:</label>
       <input
         type="number"
         class="form-control"
@@ -33,8 +42,14 @@
         placeholder="Enter the number of guests"
         required
       />
+      <div *ngIf="applyForm.get('numberOfGuests')?.hasError('required') && applyForm.get('numberOfGuests')?.touched" class="text-danger">
+        Number of Guests is required.
+      </div>
+      <div *ngIf="applyForm.get('numberOfGuests')?.hasError('min') && applyForm.get('numberOfGuests')?.touched" class="text-danger">
+        Number of Guests must be at least 1.
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" >Initiate Reservation</button>
+    <button type="submit" class="btn btn-primary">Initiate Reservation</button>
   </form>
 </div>

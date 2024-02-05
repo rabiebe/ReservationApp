@@ -7,7 +7,9 @@
           </div>
   
           <div class="card-body">
-
+            <div *ngIf="registerError" class="alert alert-danger" role="alert">
+              {{ registerError }} 
+            </div>
             <form [formGroup]="applyForm" (ngSubmit)="register()">
               <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>

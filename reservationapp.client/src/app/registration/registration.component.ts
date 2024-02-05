@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent {
 
+  registerError: string = '';
+
   constructor(private userService: UserService, private router: Router) {}
 
   applyForm = new FormGroup({
@@ -33,6 +35,7 @@ export class RegistrationComponent {
           },
           (error) => {
             console.error('register failed:', error);
+            this.registerError = error ? error.error : 'Registration failed. Please check your credentials.'; 
           }
         );
     } else {

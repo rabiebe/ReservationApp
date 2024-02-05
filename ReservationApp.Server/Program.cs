@@ -66,6 +66,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");

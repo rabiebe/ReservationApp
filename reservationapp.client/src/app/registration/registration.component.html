@@ -21,7 +21,10 @@
                 <input type="password" id="password" name="password" class="form-control" formControlName="password" required />
                 <div *ngIf="applyForm.get('password')?.hasError('required') && applyForm.get('password')?.touched" class="text-danger">
                   Password is required.
-              </div>
+                </div>
+                <div *ngIf="applyForm.get('password')?.hasError('min') && applyForm.get('password')?.touched" class="text-danger">
+                  Password must be at least 6 characters long.
+                </div>
               </div>
               <div class="d-flex justify-content-around">
                 <button type="submit" class="btn btn-primary ml-2">Create new account</button>

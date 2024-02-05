@@ -6,12 +6,8 @@ A simple reservation system where users can register, log in, and initiate reser
 
 - [About](#about)
 - [Features](#features)
-- [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Built With](#built-with)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+
 
 ## About
 
@@ -23,16 +19,6 @@ This reservation system allows users to register, log in, and initiate reservati
 - Reservation initiation with date and time restrictions
 - View available categories for reservation
 - Confirmation modal upon successful reservation
-
-## Getting Started
-
-### Prerequisites
-
-- [List any software or tools needed for the project]
-
-### Installation
-
-[Step-by-step guide on installing the project]
 
 ## Usage
 

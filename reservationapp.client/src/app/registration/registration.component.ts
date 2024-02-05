@@ -16,7 +16,7 @@ export class RegistrationComponent {
 
   applyForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/)]),
   });
 
   register() {

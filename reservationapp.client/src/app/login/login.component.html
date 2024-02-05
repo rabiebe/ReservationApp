@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Login</h2>
+          </div>
+          
+          <div class="card-body">
+            <div *ngIf="loginError" class="alert alert-danger" role="alert">
+              {{ loginError }}
+            </div>
+            <form  [formGroup]="applyForm" (ngSubmit)="login()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" name="username"  class="form-control" formControlName="username" required />
+                <div *ngIf="applyForm.get('username')?.hasError('required') && applyForm.get('username')?.touched" class="text-danger">
+                    Username is required.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password"  class="form-control" formControlName="password" required />
+                <div *ngIf="applyForm.get('password')?.hasError('required') && applyForm.get('password')?.touched" class="text-danger">
+                    Password is required.
+                </div>
+              </div>
+              <div class="d-flex justify-content-around">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-secondary ml-2" (click)="navigateToRegister()">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

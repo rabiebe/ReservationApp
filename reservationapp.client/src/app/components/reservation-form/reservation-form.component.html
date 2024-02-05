@@ -1,5 +1,8 @@
 <div class="card container p-5 mb-3 overflow-auto" style="max-height: 80vh">
   <h2 class="mb-4">Reservation Form</h2>
+  <div *ngIf="_error" class="alert alert-danger" role="alert">
+    {{ _error }}
+  </div>
   <form [formGroup]="applyForm" (ngSubmit)="initiateReservation()">
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>

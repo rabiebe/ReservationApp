@@ -15,10 +15,12 @@ import { ReservationFormComponent } from './components/reservation-form/reservat
 import { DatePipe } from '@angular/common';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent,NavigationComponent, ReservationListComponent, HomeComponent, ReservationComponent, ReservationFormComponent, ConfirmationModalComponent
+    AppComponent,NavigationComponent, ReservationListComponent, HomeComponent, ReservationComponent, ReservationFormComponent, ConfirmationModalComponent, RegistrationComponent, LoginComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

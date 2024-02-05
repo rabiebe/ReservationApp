@@ -4,13 +4,18 @@ import { ReservationListComponent } from './components/reservation-list/reservat
 import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
 import { ReservationFormComponent } from './components/reservation-form/reservation-form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './services/auth.guard';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: "reservation-list", component: ReservationListComponent },
-  { path: "reservation-form", component: ReservationFormComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: "reservation-list", component: ReservationListComponent, canActivate: [AuthGuard] },
+  { path: "reservation-form", component: ReservationFormComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

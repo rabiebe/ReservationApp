@@ -13,7 +13,7 @@ import { ConfirmationModalComponent } from '../../confirmation-modal/confirmatio
 })
 export class ReservationFormComponent  {
   modalRef: BsModalRef | undefined; 
-
+  _error: string = '';
   constructor(private reservationService: ReservationService, private datePipe: DatePipe, private modalService: BsModalService) {}
 
   
@@ -47,7 +47,8 @@ export class ReservationFormComponent  {
             this.reservationService.getAll(); 
           },
           (error) => {
-            console.error('Error saving reservation:', error);
+            console.error('Error saving reservation:', error.error);
+            this._error = error.error;
           }
         );
     } else {

@@ -46,7 +46,13 @@ namespace restaurant_reservation_api.Controllers
                 {
                     return BadRequest("Missing required fields. Please provide valid values for name, date, time, and number of guests.");
                 }
+                /*var existingReservation = await _context.Reservations
+                            .FirstOrDefaultAsync(r => r.UserId == reservationRequest.UserId);
 
+                if (existingReservation != null)
+                {
+                    return BadRequest("User already has an existing reservation.");
+                }*/
                 if (_context.Reservations.Any(r => r.Date == reservationRequest.Date && r.Time == reservationRequest.Time))
                 {
                     return BadRequest("Reservation already exists for the selected date and time.");

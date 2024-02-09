@@ -25,19 +25,6 @@ This reservation system provides a straightforward platform for users to registe
 4. **Confirmation Modal**
    - Upon successfully making a reservation, users receive a confirmation modal.
 
-## Usage
-
-1. **Register/Login:**
-   - Users can create an account or log in.
-
-2. **View Categories:**
-   - Navigate to the home page to explore available reservation categories.
-
-3. **Initiate Reservation:**
-   - Click on "Book Now" to start a reservation, ensuring it doesn't conflict with existing reservations.
-
-4. **Confirmation Modal:**
-   - A confirmation modal will appear, confirming the successful reservation.
 
 ## Installation
 
